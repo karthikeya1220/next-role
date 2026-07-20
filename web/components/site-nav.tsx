@@ -8,17 +8,14 @@ import { Logo } from "@/components/logo";
 
 // Top navigation, ordered by how often the daily loop needs each page.
 const links = [
-  { href: "/", label: "Home" },
-  { href: "/today", label: "Apply today" },
-  { href: "/manual-jd", label: "Paste JD" },
-  { href: "/jobs", label: "Jobs" },
-  { href: "/kb", label: "Knowledge Base" },
+  { href: "/", label: "Overview" },
+  { href: "/today", label: "Matches" },
+  { href: "/manual-jd", label: "Import role" },
+  { href: "/jobs", label: "Tracker" },
+  { href: "/kb", label: "Brain" },
   { href: "/profile", label: "Profile" },
-  { href: "/templates", label: "Templates" },
-  { href: "/settings", label: "Filters" },
-  // Last: the list is ordered by how often the daily loop needs a page, and the
-  // wall is needed never.
-  { href: "/board", label: "Board" },
+  { href: "/templates", label: "Resumes" },
+  { href: "/settings", label: "Preferences" },
 ];
 
 export function SiteNav() {
