@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 import { api, type SetupStatus } from "@/lib/api";
-import { BoardStrip } from "@/components/board/board-strip";
 import { Logo } from "@/components/logo";
 import { PipelineRunner } from "@/components/pipeline/pipeline-runner";
 import { Button, buttonVariants } from "@/components/ui/button";
@@ -62,7 +61,7 @@ export default function Home() {
             </p>
           </div>
           <Link href="/today" className={buttonVariants({ variant: "default" })}>
-            Apply today →
+            View your matches
           </Link>
         </div>
       )}
@@ -99,7 +98,7 @@ export default function Home() {
                     size: "sm",
                   })}
                 >
-                  {step.done ? "Edit" : "Open"}
+                  {step.done ? "Manage" : "View"}
                 </Link>
               )}
               {!step.href && step.action && (
@@ -123,7 +122,7 @@ export default function Home() {
 
       <div className="space-y-3">
         <div>
-          <h2 className="font-medium">Update your jobs</h2>
+          <h2 className="font-medium tracking-tight">Refresh matches</h2>
           <p className="text-xs text-muted-foreground mt-1">
             Fetch pulls new postings from every company you track and scores them
             against your knowledge base in the same run. The slow part is your
@@ -135,12 +134,10 @@ export default function Home() {
 
       <Separator />
 
-      <BoardStrip />
-
-      <p className="text-xs text-muted-foreground">
-        Found a job elsewhere?{" "}
+      <p className="text-xs text-muted-foreground mt-8">
+        Found a role elsewhere?{" "}
         <Link href="/manual-jd" className="underline">
-          Paste the description
+          Import the description
         </Link>{" "}
         to score it and tailor a resume.
       </p>
