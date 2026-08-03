@@ -16,7 +16,7 @@ const body = Instrument_Sans({ variable: "--font-body", subsets: ["latin"] });
 const code = JetBrains_Mono({ variable: "--font-code", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "unemployed",
+  title: "NextRole",
   description: "Discover jobs, tailor resumes, and prepare applications faster.",
 };
 
