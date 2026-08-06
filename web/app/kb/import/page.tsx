@@ -135,7 +135,7 @@ export default function ImportPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-semibold">Import from documents</h1>
+        <h1 className="text-2xl font-semibold tracking-tight">Import knowledge</h1>
         <p className="text-muted-foreground mt-1 max-w-prose">
           Upload your resume and any documents about projects, achievements,
           leadership, or skills. They&apos;re parsed into chunks you can review
@@ -202,7 +202,7 @@ export default function ImportPage() {
       {proposed && (
         <div className="space-y-3">
           <div className="flex items-center justify-between">
-            <h2 className="font-medium">Review proposed chunks ({proposed.length})</h2>
+            <h2 className="font-medium tracking-tight">Review proposed knowledge ({proposed.length})</h2>
             <Button onClick={saveAll} disabled={saving}>
               {saving ? "Saving…" : "Save all to Knowledge Base"}
             </Button>

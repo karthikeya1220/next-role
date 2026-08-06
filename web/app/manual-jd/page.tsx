@@ -51,7 +51,7 @@ export default function ManualJdPage() {
   return (
     <div className="space-y-6 max-w-2xl">
       <div>
-        <h1 className="text-2xl font-semibold">Paste a job description</h1>
+        <h1 className="text-2xl font-semibold tracking-tight">Import Role</h1>
         <p className="text-muted-foreground mt-1 text-sm">
           For roles you found yourself. It gets the same requirement extraction,
           fit score and tailored resume as automatically discovered jobs.

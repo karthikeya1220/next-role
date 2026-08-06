@@ -27,7 +27,7 @@ export default function KBPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-semibold">Knowledge Base</h1>
+        <h1 className="text-2xl font-semibold tracking-tight">Brain</h1>
         <p className="text-muted-foreground mt-1">
           {chunks.length} accomplishment chunk{chunks.length === 1 ? "" : "s"} stored.
         </p>
@@ -49,7 +49,7 @@ export default function KBPage() {
       <Separator />
 
       <div className="space-y-3">
-        <h2 className="font-medium">Stored chunks</h2>
+        <h2 className="font-medium tracking-tight">Stored knowledge</h2>
         <ChunkList chunks={chunks} onChanged={refresh} />
       </div>
     </div>

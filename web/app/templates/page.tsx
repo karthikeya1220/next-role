@@ -68,7 +68,7 @@ export default function TemplatesPage() {
   return (
     <div className="space-y-6 max-w-3xl">
       <div>
-        <h1 className="text-2xl font-semibold">Resume templates</h1>
+        <h1 className="text-2xl font-semibold tracking-tight">Resumes</h1>
         <p className="text-muted-foreground mt-1 text-sm">
           Paste the LaTeX from Overleaf. Tailored resumes then come back in your
           own format, and only the wording inside Experience, Projects,
@@ -110,7 +110,7 @@ export default function TemplatesPage() {
       <Separator />
 
       <div className="space-y-3">
-        <h2 className="font-medium">Saved templates</h2>
+        <h2 className="font-medium tracking-tight">Saved formats</h2>
         {templates.length === 0 && (
           <p className="text-sm text-muted-foreground">
             None yet. Until you add one, resumes are generated into the built-in

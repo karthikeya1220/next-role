@@ -55,7 +55,7 @@ export default function TodayPage() {
     <div className="space-y-6">
       <div className="flex items-end justify-between gap-4 flex-wrap">
         <div>
-          <h1 className="text-2xl font-semibold">Apply today</h1>
+          <h1 className="text-2xl font-semibold tracking-tight">Matches</h1>
           <p className="text-muted-foreground mt-1 text-sm">
             {loading
               ? "Loading…"

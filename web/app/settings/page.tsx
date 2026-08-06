@@ -100,7 +100,7 @@ export default function SettingsPage() {
   return (
     <div className="space-y-6 max-w-2xl">
       <div>
-        <h1 className="text-2xl font-semibold">Filters</h1>
+        <h1 className="text-2xl font-semibold tracking-tight">Preferences</h1>
         <p className="text-muted-foreground mt-1 text-sm">
           What you&apos;re willing to apply to. Filtered jobs aren&apos;t deleted —
           they stay visible behind &ldquo;Show filtered&rdquo; with a reason.

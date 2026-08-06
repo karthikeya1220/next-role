@@ -138,7 +138,7 @@ export default function JobsPage() {
       {/* ── header ── */}
       <div className="flex items-end justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-semibold">Jobs</h1>
+          <h1 className="text-2xl font-semibold tracking-tight">Tracker</h1>
           <p className="text-muted-foreground mt-1 text-sm">
             {stats
               ? `${stats.active} active roles from ${stats.companies} companies`
