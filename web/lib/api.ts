@@ -541,7 +541,7 @@ export const api = {
 // there just breaks every avatar. Point at the real site and let anyone
 // running landing/ locally set NEXT_PUBLIC_LANDING_URL themselves.
 const LANDING =
-  process.env.NEXT_PUBLIC_LANDING_URL ?? "https://unemployed-eight.vercel.app";
+  process.env.NEXT_PUBLIC_LANDING_URL ?? "https://next-role.vercel.app";
 
 export type Signup = {
   id: string;

@@ -11,7 +11,7 @@
  */
 export const copy = {
   meta: {
-    title: "unemployed",
+    title: "NextRole",
     description:
       "A free job hunting tool that runs on your own laptop. Finds roles, shows you why they fit, and writes a resume from things you actually did.",
   },
@@ -107,7 +107,7 @@ export const copy = {
     steps: [
       {
         title: "Clone it",
-        command: "git clone https://github.com/Maan-Teckwani/unemployed.git",
+        command: "git clone https://github.com/karthikeya1220/next-role.git",
         note: "Then open that folder in a terminal.",
       },
       {

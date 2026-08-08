@@ -19,7 +19,7 @@ services:
 
   init:
     # Pulls the model with progress and exits. Nothing else waits on it.
-    image: ${IMAGE_REGISTRY:-ghcr.io/maan-teckwani}/unemployed-init:${IMAGE_TAG:-latest}
+    image: ${IMAGE_REGISTRY:-ghcr.io/karthikeya1220}/next-role-init:${IMAGE_TAG:-latest}
     container_name: jobsearch-init
     restart: "no"
     depends_on:
@@ -29,7 +29,7 @@ services:
       OLLAMA_MODEL: ${OLLAMA_MODEL:-llama3.2:3b}
 
   api:
-    image: ${IMAGE_REGISTRY:-ghcr.io/maan-teckwani}/unemployed-api:${IMAGE_TAG:-latest}
+    image: ${IMAGE_REGISTRY:-ghcr.io/karthikeya1220}/next-role-api:${IMAGE_TAG:-latest}
     container_name: jobsearch-api
     restart: unless-stopped
     environment:
@@ -46,7 +46,7 @@ services:
              uvicorn app.main:app --host 0.0.0.0 --port 8000"
 
   worker:
-    image: ${IMAGE_REGISTRY:-ghcr.io/maan-teckwani}/unemployed-api:${IMAGE_TAG:-latest}
+    image: ${IMAGE_REGISTRY:-ghcr.io/karthikeya1220}/next-role-api:${IMAGE_TAG:-latest}
     container_name: jobsearch-worker
     restart: unless-stopped
     depends_on:
@@ -61,7 +61,7 @@ services:
     command: python -m app.worker.scheduler --daily
 
   web:
-    image: ${IMAGE_REGISTRY:-ghcr.io/maan-teckwani}/unemployed-web:${IMAGE_TAG:-latest}
+    image: ${IMAGE_REGISTRY:-ghcr.io/karthikeya1220}/next-role-web:${IMAGE_TAG:-latest}
     container_name: jobsearch-web
     restart: unless-stopped
     depends_on:

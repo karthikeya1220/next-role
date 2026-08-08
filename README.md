@@ -59,10 +59,10 @@ Missing one? The script below names it and gives you the command to install it.
 file at `data/jobsearch.db` — see [Why SQLite](#why-sqlite).
 
 ```bash
-git clone https://github.com/Maan-Teckwani/unemployed.git
+git clone https://github.com/karthikeya1220/next-role.git
 ```
 ```bash
-cd unemployed
+cd next-role
 ```
 
 **Windows**

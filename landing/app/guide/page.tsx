@@ -7,7 +7,7 @@ import { InstallSection } from "@/components/install-section";
 import { copy } from "@/lib/copy";
 
 export const metadata: Metadata = {
-  title: "How to use unemployed",
+  title: "How to use NextRole",
   description:
     "Half an hour of setup, then ten minutes a day. What to write down before you start, and the four ways to get a bad result.",
 };
