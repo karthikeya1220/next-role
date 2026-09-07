@@ -582,3 +582,117 @@ export async function fetchSignups(
     return null;
   }
 }
+
+// ─── CareerOS additions ────────────────────────────────────────────────────
+
+export type CategoryScore = {
+  score: number;
+  max: number;
+  evidence: string;
+};
+
+export type ScoreResponse = {
+  total_score: number;
+  max_score: number;
+  position_title: string;
+  role_name: string;
+  categories: Record<string, CategoryScore>;
+  bonus_points: { total: number; breakdown: string };
+  deductions: { total: number; reasons: string };
+  key_strengths: string[];
+  areas_for_improvement: string[];
+  candidate_name: string | null;
+  github_enriched: boolean;
+};
+
+export type CoverLetterResponse = {
+  final: string;
+  draft: string;
+  critique: string[];
+  overall_quality: string;
+  approved_at_draft: boolean;
+  fit: FitResponse | null;
+};
+
+export type FitResponse = {
+  overall_fit: "strong" | "moderate" | "weak";
+  fit_score: number;
+  skills_match: { matched: string[]; missing_required: string[]; missing_preferred: string[] };
+  experience_match: { meets_requirements: boolean; notes: string };
+  culture_fit: { indicators: string[]; concerns: string[] };
+  recommendation: "apply" | "consider" | "skip";
+  recommendation_reason: string;
+  tailoring_tips: string[];
+};
+
+export type SalaryResponse = {
+  company: string;
+  role_title: string;
+  min_annual: number | null;
+  max_annual: number | null;
+  median_annual: number | null;
+  currency: string;
+  confidence: string | null;
+  notes: string | null;
+  source: string;
+  percentiles: { p25: number | null; p50: number | null; p75: number | null } | null;
+};
+
+export const careeros = {
+  async scoreResume(file: File, roleName: string, githubUsername?: string): Promise<ScoreResponse> {
+    const form = new FormData();
+    form.append("file", file);
+    form.append("role_name", roleName);
+    if (githubUsername) form.append("github_username", githubUsername);
+    const res = await fetch(`${BASE}/resume-score`, { method: "POST", body: form });
+    if (!res.ok) throw new Error(await res.text());
+    return res.json();
+  },
+
+  async listRoles(): Promise<{ roles: string[] }> {
+    const res = await fetch(`${BASE}/resume-score/roles`);
+    return res.json();
+  },
+
+  async generateCoverLetter(
+    jobDescription: string,
+    candidateProfile: string,
+    tone = "professional and direct",
+    runFitCheck = true,
+  ): Promise<CoverLetterResponse> {
+    const res = await fetch(`${BASE}/cover-letter`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        job_description: jobDescription,
+        candidate_profile: candidateProfile,
+        tone,
+        run_fit_check: runFitCheck,
+      }),
+    });
+    if (!res.ok) throw new Error(await res.text());
+    return res.json();
+  },
+
+  async checkFit(jobDescription: string, candidateProfile: string): Promise<FitResponse> {
+    const res = await fetch(`${BASE}/cover-letter/fit`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ job_description: jobDescription, candidate_profile: candidateProfile }),
+    });
+    if (!res.ok) throw new Error(await res.text());
+    return res.json();
+  },
+
+  async salaryBenchmark(
+    company: string,
+    role: string,
+    location = "India",
+    experience = "entry-level (0-2 years)",
+  ): Promise<SalaryResponse> {
+    const params = new URLSearchParams({ company, role, location, experience });
+    const res = await fetch(`${BASE}/salary?${params}`);
+    if (!res.ok) throw new Error(await res.text());
+    return res.json();
+  },
+};

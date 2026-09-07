@@ -15,6 +15,9 @@ const links = [
   { href: "/kb", label: "Brain" },
   { href: "/profile", label: "Profile" },
   { href: "/templates", label: "Resumes" },
+  { href: "/resume-score", label: "Score CV" },
+  { href: "/apply", label: "Apply" },
+  { href: "/salary", label: "Salary" },
   { href: "/settings", label: "Preferences" },
 ];
 

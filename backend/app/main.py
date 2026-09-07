@@ -13,6 +13,7 @@ from sqlalchemy.orm import Session
 from app.api import (
     applications,
     companies,
+    cover_letter,
     jobs,
     kb,
     matches,
@@ -21,7 +22,9 @@ from app.api import (
     preferences,
     profile,
     projects,
+    resume_score,
     resumes,
+    salary,
     setup,
     templates,
 )
@@ -38,7 +41,7 @@ async def lifespan(app: FastAPI):
     yield
 
 
-app = FastAPI(title="AI Career Assistant", version="0.1.0", lifespan=lifespan)
+app = FastAPI(title="CareerOS", version="0.1.0", lifespan=lifespan)
 
 # The Next.js dev server calls this API on :8000, and a browser treats
 # "localhost" and "127.0.0.1" as different origins even though they reach the
@@ -69,6 +72,10 @@ app.include_router(pipeline.router)
 app.include_router(setup.router)
 app.include_router(templates.router)
 app.include_router(profile.router)
+# CareerOS — new routes
+app.include_router(resume_score.router)
+app.include_router(cover_letter.router)
+app.include_router(salary.router)
 
 
 @app.get("/health")

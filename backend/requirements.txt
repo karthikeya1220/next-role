@@ -28,7 +28,7 @@ psycopg[binary]>=3.2.3,<4
 # Embeddings (bge-small-en-v1.5). Pulls torch — this is the heavy install.
 sentence-transformers>=3.3.1
 
-# HTTP client (Ollama, ATS connectors)
+# HTTP client (OpenRouter, ATS connectors, GitHub API)
 httpx>=0.28.1
 
 # HTML parsing for scraper-based connectors (e.g. Internshala).
@@ -41,6 +41,18 @@ python-docx>=1.1.2
 
 # ATS-safe PDF generation (pure Python — no GTK/browser system deps)
 fpdf2>=2.8.2
+
+# --- CareerOS additions ---
+
+# PDF → markdown extraction (resume scorer)
+PyMuPDF>=1.26.0
+pymupdf4llm>=0.0.20
+
+# Jinja2 templates for resume extraction prompts
+Jinja2>=3.1.6
+
+# dotenv support
+python-dotenv>=1.2.0
 
 # Tests
 pytest>=8.3.4
